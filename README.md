@@ -1,35 +1,35 @@
-# Império das Piscinas — Landing Page
+# Império das Piscinas — Landing Pages
 
-Landing page de conversão para a **Império das Piscinas**, especialista em aquecimento solar de piscinas em Goiânia e região.
+Duas landing pages de conversão para a **Império das Piscinas**, especialista em aquecimento solar e capas térmicas de piscinas em Goiânia e região.
 
-Página estática em HTML/CSS/JS puro (sem build, sem dependências), publicada via **GitHub Pages**.
+Páginas estáticas em HTML/CSS/JS puro (sem build, sem dependências), publicadas via **cPanel Git Version Control**.
 
 ## Estrutura
 
 ```
 .
-├── index.html              # página completa (HTML + CSS + JS inline)
+├── index.html               # tela seletora (raiz do domínio) — escolhe entre as duas LPs
+├── aquecedores.html         # LP de aquecimento solar -> /aquecedores
+├── capas-termica.html       # LP de capas térmicas 300 micras -> /capas-termica
+├── .htaccess                # URLs limpas, HTTPS, gzip, cache
+├── .cpanel.yml               # tarefa de deploy do cPanel Git Version Control
+├── robots.txt / sitemap.xml
 ├── assets/
-│   └── img/
-│       ├── logo-navy.png            # logo azul-marinho (fundos claros)
-│       ├── logo-white.png           # logo branca (fundos escuros)
-│       ├── hero.png                 # imagem de fundo do hero
-│       ├── piscina-cascata.png      # galeria de projetos
-│       ├── piscina-lazer.png        # galeria + fundo dos diferenciais
-│       ├── piscina-entardecer.png   # galeria de projetos
-│       └── piscina-entardecer-2.png # foto alternativa (reserva)
-├── .nojekyll               # desativa o processamento Jekyll no Pages
+│   ├── favicon-dark.svg / favicon-light.svg   # trocam conforme o tema do navegador
+│   ├── apple-touch-icon.png / favicon-48.png
+│   └── img/                 # imagens em WebP otimizado + og-image.jpg
 └── README.md
 ```
 
+## URLs
+
+- `/` — seletor entre as LPs
+- `/aquecedores` — aquecimento solar
+- `/capas-termica` — capas térmicas (URL antiga `/v2` redireciona automaticamente)
+
 ## Como visualizar localmente
 
-Abra o `index.html` direto no navegador, ou suba um servidor local:
-
-```bash
-python3 -m http.server 8000
-# acesse http://localhost:8000
-```
+Suba um servidor estático simples (ex.: `npx serve .`) e acesse `http://localhost:.../index.html`. As URLs limpas (`/aquecedores`, `/capas-termica`) só funcionam com as regras do `.htaccess`, ativas no servidor de produção (Apache/cPanel).
 
 ## Identidade visual
 
