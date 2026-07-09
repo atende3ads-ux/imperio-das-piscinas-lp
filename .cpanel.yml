@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home2/hg3ads37/imperiodaspiscinasgo.com.br/
-    - /usr/bin/rsync -rv --exclude='.git' --exclude='.cpanel.yml' --exclude='.gitignore' --exclude='.nojekyll' --exclude='README.md' ./ $DEPLOYPATH
+    - /usr/bin/rsync -rv --exclude='.git' --exclude='.cpanel.yml' --exclude='.gitignore' --exclude='.nojekyll' --exclude='README.md' --exclude='assets/img/*.png' --exclude='assets/favicon imperio*.svg' ./ $DEPLOYPATH
