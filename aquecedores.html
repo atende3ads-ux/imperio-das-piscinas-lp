@@ -757,6 +757,13 @@ if(galTrack){
     galTrack.addEventListener('mouseleave',galStart);
   }
 }
+
+// clique no WhatsApp -> abre o WhatsApp em nova aba e leva esta aba para /obrigado (rastreio de conversão)
+document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function(a){
+  a.addEventListener('click',function(){
+    setTimeout(function(){window.location.href='/obrigado?origem=aquecedores';},300);
+  });
+});
 </script>
 </body>
 </html>
