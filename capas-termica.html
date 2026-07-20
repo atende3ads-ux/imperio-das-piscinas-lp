@@ -753,10 +753,11 @@ if(galTrack){
   }
 }
 
-// clique no WhatsApp -> abre o WhatsApp em nova aba e leva esta aba para /obrigado (rastreio de conversão)
+// clique no WhatsApp -> rastreia a conversão sem tirar o lead do caminho direto para a conversa
 document.querySelectorAll('a[href^="https://wa.me/"],a[href*="tintim.link/whatsapp"]').forEach(function(a){
   a.addEventListener('click',function(){
-    setTimeout(function(){window.location.href='/obrigado?origem=capas-termica';},300);
+    dataLayer.push({event:'lead_whatsapp',origem:'capas-termica'});
+    gtag('event','generate_lead',{event_category:'whatsapp',event_label:'capas-termica'});
   });
 });
 </script>
