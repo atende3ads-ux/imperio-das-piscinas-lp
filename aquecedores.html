@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Animações de entrada só rodam com JS ativo; se o script de reveal não subir em 2,5s, o conteúdo aparece mesmo assim -->
+<script>(function(d){var h=d.documentElement;h.classList.add('js');setTimeout(function(){if(!window.revealReady)h.classList.remove('js')},2500)})(document);</script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16533031982"></script>
+<script defer src="https://www.googletagmanager.com/gtag/js?id=AW-16533031982"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -35,7 +37,7 @@ function gtag_report_conversion(url) {
 <!-- ===================== SEO / AEO / GEO ===================== -->
 <title>Aquecimento Solar de Piscinas em Goiânia | Império das Piscinas</title>
 <meta name="description" content="Aquecimento solar de piscinas em Goiânia e região com equipe própria, instalação imediata e garantia. Use sua piscina o ano todo. Peça uma visita técnica gratuita.">
-<meta name="keywords" content="aquecimento solar de piscina, aquecimento de piscina Goiânia, placa solar piscina, piscina aquecida Goiânia, aquecimento solar piscina Aparecida de Goiânia">
+<meta name="keywords" content="aquecimento solar de piscina, aquecimento de piscina Goiânia, placa solar piscina, bomba de calor piscina, bomba de calor piscina Goiânia, piscina aquecida Goiânia, aquecimento solar piscina Aparecida de Goiânia">
 <meta name="author" content="Império das Piscinas">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://imperiodaspiscinasgo.com.br/aquecedores">
@@ -68,7 +70,8 @@ function gtag_report_conversion(url) {
 <!-- Fontes: carregamento não bloqueante -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/hero-mobile.webp" media="(max-width:760px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width:761px)" fetchpriority="high">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
@@ -123,6 +126,9 @@ img{max-width:100%;display:block}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 section{padding:88px 0;border-bottom:1px solid var(--border)}
 @media(max-width:900px){section{padding:60px 0}}
+/* âncoras (#aquecimento-solar, #galeria, #bomba-de-calor...) não ficam atrás do header fixo */
+[id]{scroll-margin-top:72px}
+@media(max-width:640px){[id]{scroll-margin-top:140px}}
 
 /* Kicker / título / apoio */
 .kicker{
@@ -260,6 +266,23 @@ header{position:sticky;top:0;z-index:50;background:var(--blue);color:#fff;box-sh
 .card p{font-size:.96rem;color:var(--t2)}
 @media(max-width:900px){.grid3{grid-template-columns:1fr;gap:18px}}
 
+/* ---------- BOMBA DE CALOR ---------- */
+.heat-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.heat-list{list-style:none;margin-top:24px}
+.heat-list li{display:flex;gap:12px;padding:11px 0;color:var(--t2);font-size:1rem}
+.heat-list svg{color:var(--blue);flex-shrink:0;margin-top:3px}
+.heat-list b{color:var(--navy);font-weight:600}
+.compare{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden}
+.compare-head{display:grid;grid-template-columns:1.1fr 1fr 1fr;background:var(--navy);color:#fff;font-family:var(--font-head);font-weight:600;font-size:.9rem}
+.compare-head span,.compare-row span{padding:14px 16px}
+.compare-row{display:grid;grid-template-columns:1.1fr 1fr 1fr;border-top:1px solid var(--border);font-size:.92rem;color:var(--t2)}
+.compare-row span:first-child{color:var(--navy);font-weight:600}
+.compare-row:nth-child(even){background:var(--bg)}
+.compare-foot{padding:16px;border-top:1px solid var(--border);font-size:.9rem;color:var(--t2);background:var(--surface-2)}
+.compare-foot b{color:var(--navy)}
+@media(max-width:900px){.heat-grid{grid-template-columns:1fr;gap:32px}}
+@media(max-width:520px){.compare-head span,.compare-row span{padding:12px 10px}.compare-head,.compare-row{font-size:.84rem}}
+
 /* ---------- PROCESSO ---------- */
 .proc-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
 .steps{list-style:none;counter-reset:s}
@@ -343,7 +366,7 @@ footer .cr{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:14px}
 
 /* ---------- MOBILE ---------- */
 @media(max-width:900px){
-  .diff{background-attachment:scroll}
+  .diff{background:linear-gradient(155deg,rgba(12,24,96,.95),rgba(10,94,150,.88)),url('assets/img/piscina-lazer-800.webp') center/cover no-repeat}
   .hero-grid{grid-template-columns:1fr;gap:32px}
   .hero-side{justify-self:stretch;max-width:none;margin-top:4px}
 }
@@ -352,7 +375,7 @@ footer .cr{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:14px}
   .hero{
     background:
       linear-gradient(180deg,rgba(6,12,42,.84) 0%,rgba(6,12,42,.62) 48%,rgba(6,12,42,.76) 100%),
-      url('assets/img/hero.webp') center/cover no-repeat;
+      url('assets/img/hero-mobile.webp') center/cover no-repeat;
   }
 }
 @media(max-width:640px){
@@ -370,25 +393,26 @@ footer .cr{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:14px}
   .quote-card p{font-size:1.2rem}
 }
 
-/* ---------- ANIMAÇÕES DE SCROLL / FADE IN ---------- */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);will-change:opacity,transform}
-.reveal.in{opacity:1;transform:none}
-.reveal.r-left{transform:translateX(-34px)}
-.reveal.r-right{transform:translateX(34px)}
-.reveal.r-zoom{transform:scale(.94)}
-.reveal.r-left.in,.reveal.r-right.in,.reveal.r-zoom.in{transform:none}
+/* ---------- ANIMAÇÕES DE SCROLL / FADE IN ----------
+   Só abaixo da dobra (o hero não usa .reveal) e só quando o JS está ativo
+   (classe .js no <html>). Sem JS ou se o script falhar, tudo aparece normalmente. */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal.r-left{transform:translateX(-34px)}
+.js .reveal.r-right{transform:translateX(34px)}
+.js .reveal.r-zoom{transform:scale(.94)}
+.js .reveal.r-left.in,.js .reveal.r-right.in,.js .reveal.r-zoom.in{transform:none}
 /* stagger: elementos-filho entram em cascata */
-.stagger>*{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
-.stagger.in>*{opacity:1;transform:none}
+.js .stagger>*{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.js .stagger.in>*{opacity:1;transform:none}
 .stagger.in>*:nth-child(1){transition-delay:.05s}
 .stagger.in>*:nth-child(2){transition-delay:.13s}
 .stagger.in>*:nth-child(3){transition-delay:.21s}
 .stagger.in>*:nth-child(4){transition-delay:.29s}
 .stagger.in>*:nth-child(5){transition-delay:.37s}
 .stagger.in>*:nth-child(6){transition-delay:.45s}
-/* leve parallax no fundo do hero ao rolar */
 @media(prefers-reduced-motion:reduce){
-  .reveal,.stagger>*{opacity:1!important;transform:none!important;transition:none!important}
+  .js .reveal,.js .stagger>*{opacity:1!important;transform:none!important;transition:none!important}
 }
 
 /* ---------- TELAS GRANDES (widescreen / TV / 4K) ---------- */
@@ -428,11 +452,19 @@ footer .cr{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:14px}
       "description":"Instalação de aquecimento solar de piscinas com equipe própria, instalação imediata e garantia."
     },
     {
+      "@type":"Service",
+      "name":"Bomba de calor para piscinas",
+      "provider":{"@id":"https://imperiodaspiscinasgo.com.br/#business"},
+      "areaServed":"Goiânia e região",
+      "description":"Instalação de bomba de calor para aquecimento de piscinas a qualquer hora, com temperatura controlada, equipe própria e garantia."
+    },
+    {
       "@type":"FAQPage",
       "mainEntity":[
         {"@type":"Question","name":"Qual sistema é ideal para a minha piscina?","acceptedAnswer":{"@type":"Answer","text":"Depende do tamanho, do uso e de já existir ou não um ponto de aquecimento. A visita técnica é gratuita: avaliamos no local e indicamos o sistema certo."}},
+        {"@type":"Question","name":"Solar ou bomba de calor: qual escolher?","acceptedAnswer":{"@type":"Answer","text":"O solar é o mais econômico de manter e aquece durante o dia. A bomba de calor aquece a qualquer hora, inclusive à noite e em dias nublados, com temperatura controlada. Muita gente combina os dois."}},
         {"@type":"Question","name":"Quanto custa o aquecimento solar de piscina?","acceptedAnswer":{"@type":"Answer","text":"Varia conforme o tamanho da piscina e o sistema. Passamos uma estimativa no primeiro contato e fechamos o valor certo depois da visita técnica."}},
-        {"@type":"Question","name":"Vai aumentar minha conta de luz?","acceptedAnswer":{"@type":"Answer","text":"O aquecimento solar aproveita o sol de Goiânia, então é o sistema mais econômico de manter no dia a dia."}},
+        {"@type":"Question","name":"Vai aumentar minha conta de luz?","acceptedAnswer":{"@type":"Answer","text":"O aquecimento solar aproveita o sol de Goiânia, então é o sistema mais econômico de manter no dia a dia. A bomba de calor usa energia elétrica de forma eficiente, captando o calor do ar."}},
         {"@type":"Question","name":"Quanto tempo leva a instalação?","acceptedAnswer":{"@type":"Answer","text":"Com equipe própria, a instalação é rápida, muitas vezes na mesma semana da aprovação."}},
         {"@type":"Question","name":"Tem garantia?","acceptedAnswer":{"@type":"Answer","text":"Sim. O serviço é feito para durar e você conta com garantia e suporte de um time que fica por perto."}},
         {"@type":"Question","name":"Vocês atendem em quais cidades?","acceptedAnswer":{"@type":"Answer","text":"Goiânia e região: Aparecida de Goiânia, Trindade, Goianira e Nerópolis."}}
@@ -441,15 +473,15 @@ footer .cr{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:14px}
   ]
 }
 </script>
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code (fbevents.js carregado após o load p/ não competir com a primeira pintura) -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+n.queue=[];
+function l(){t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+if(b.readyState==='complete')l();else f.addEventListener('load',l)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1753514966101034');
 fbq('track', 'PageView');
@@ -481,10 +513,10 @@ alt=""></noscript>
 <!-- ======================= HERO ======================= -->
 <section class="hero">
   <div class="wrap hero-grid">
-    <div class="hero-content reveal in">
+    <div class="hero-content">
       <div class="hero-brand">
         <img src="assets/img/logo-white.webp" alt="Império das Piscinas — aquecimento solar de piscinas" class="hero-logo" width="520" height="173" fetchpriority="high">
-        <span class="kicker">Aquecimento solar de piscinas · Goiânia e região</span>
+        <span class="kicker">Aquecimento solar e bomba de calor · Goiânia e região</span>
       </div>
       <!-- COPY: hero -->
       <h1>Sua piscina <span class="hl">quente o ano todo</span>. Chega de água fria.</h1>
@@ -492,13 +524,13 @@ alt=""></noscript>
       <div class="hero-cta">
         <a href="#orcamento" class="btn btn-primary">Solicitar visita técnica gratuita</a>
       </div>
-      <div class="hero-badges stagger">
+      <div class="hero-badges">
         <div class="hero-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Equipe própria de instalação</div>
         <div class="hero-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>Instalamos no mesmo dia</div>
         <div class="hero-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Com garantia</div>
       </div>
     </div>
-    <div class="hero-side reveal in">
+    <div class="hero-side">
       <div class="hero-qualify">
         <span class="hq-title">Adiante seu atendimento em 2 perguntas</span>
         <div class="hq-fields">
@@ -574,14 +606,14 @@ alt=""></noscript>
       </div>
       <div class="vs-row vs-hot"><div class="vs-side cold">Só serve no calor</div><div class="vs-mid" style="background:var(--blue)">→</div><div class="vs-side hot">Quente o ano todo</div></div>
       <div class="vs-row vs-cold"><div class="vs-side cold">Família para de usar no inverno</div><div class="vs-mid" style="background:var(--blue)">→</div><div class="vs-side hot">Lazer em casa sem pausa</div></div>
-      <div class="vs-row vs-hot"><div class="vs-side cold">Aquecer a gás ou elétrico pesa na conta</div><div class="vs-mid" style="background:var(--blue)">→</div><div class="vs-side hot">Solar aproveita o sol de Goiânia</div></div>
+      <div class="vs-row vs-hot"><div class="vs-side cold">Aquecer a gás ou com resistência elétrica pesa na conta</div><div class="vs-mid" style="background:var(--blue)">→</div><div class="vs-side hot">Solar aproveita o sol de Goiânia</div></div>
       <div class="vs-row vs-cold"><div class="vs-side cold">Espera semanas por instalação</div><div class="vs-mid" style="background:var(--blue)">→</div><div class="vs-side hot">Equipe própria instala essa semana</div></div>
     </div>
   </div>
 </section>
 
 <!-- ======================= SOLUÇÃO ======================= -->
-<section id="solucao" class="sol">
+<section id="aquecimento-solar" class="sol">
   <div class="wrap">
     <div class="sol-head reveal">
       <span class="kicker">A solução</span>
@@ -589,12 +621,12 @@ alt=""></noscript>
       <h2 class="h-sec">Aquecimento solar feito por <span class="hl">quem é especialista nisso</span></h2>
       <p class="lead">A gente não faz de tudo um pouco. A gente faz aquecimento, e por isso faz melhor. Do diagnóstico à instalação, resolvemos com agilidade e deixamos a sua piscina pronta para usar.</p>
     </div>
-    <p class="gallery-label reveal">Veja algumas das nossas entregas</p>
+    <p class="gallery-label reveal" id="galeria">Veja algumas das nossas entregas</p>
     <div class="gallery reveal" aria-label="Galeria de projetos de piscina">
       <button class="gnav prev" type="button" aria-label="Ver projeto anterior" onclick="galMove(-1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg></button>
       <div class="gallery-track" id="galTrack">
         <div class="gallery-item"><img src="assets/img/piscina-cascata.webp" alt="Projeto de piscina aquecida com cascata em Goiânia" width="900" height="675" loading="lazy" decoding="async"><span class="cap">Piscina com cascata</span></div>
-        <div class="gallery-item"><img src="assets/img/piscina-lazer.webp" alt="Área de lazer com piscina aquecida em Goiânia" width="900" height="675" loading="lazy" decoding="async"><span class="cap">Área de lazer completa</span></div>
+        <div class="gallery-item"><img src="assets/img/piscina-lazer-800.webp" srcset="assets/img/piscina-lazer-480.webp 480w, assets/img/piscina-lazer-800.webp 800w, assets/img/piscina-lazer.webp 1448w" sizes="(max-width:640px) 100vw, (max-width:900px) 50vw, 380px" alt="Área de lazer com piscina aquecida em Goiânia" width="800" height="600" loading="lazy" decoding="async"><span class="cap">Área de lazer completa</span></div>
         <div class="gallery-item"><img src="assets/img/piscina-entardecer.webp" alt="Piscina aquecida ao entardecer em Goiânia" width="900" height="675" loading="lazy" decoding="async"><span class="cap">Piscina ao entardecer</span></div>
         <div class="gallery-item"><img src="assets/img/placas-solares.webp" alt="Placas de aquecimento solar instaladas em telhado" width="900" height="1124" loading="lazy" decoding="async"><span class="cap">Placas de aquecimento solar</span></div>
       </div>
@@ -634,6 +666,33 @@ alt=""></noscript>
     </div>
     <div style="text-align:center;margin-top:44px" class="reveal">
       <a href="#orcamento" class="btn btn-primary">Quero um orçamento gratuito</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BOMBA DE CALOR ======================= -->
+<section id="bomba-de-calor">
+  <div class="wrap heat-grid">
+    <div class="reveal">
+      <span class="kicker">Bomba de calor</span>
+      <h2 class="h-sec">Quer a piscina quente <span class="hl">de dia, de noite e em dia nublado?</span></h2>
+      <p class="lead">A bomba de calor aquece a água captando o calor do ar, sem depender do sol. É a escolha para quem usa a piscina à noite, quer a temperatura sempre no ponto ou não tem espaço de telhado para placas solares.</p>
+      <ul class="heat-list">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span><b>Funciona a qualquer hora:</b> aquece mesmo à noite, com tempo nublado ou em dias frios.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span><b>Temperatura sob controle:</b> você escolhe a temperatura e o equipamento mantém.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span><b>Energia elétrica bem aproveitada:</b> em vez de gerar calor por resistência, ela transfere o calor do ar para a água.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span><b>Pode somar com o solar:</b> o sol faz o trabalho pesado e a bomba complementa quando precisar.</span></li>
+      </ul>
+      <div style="margin-top:28px"><a href="#orcamento" class="btn btn-primary">Quero orçamento de bomba de calor</a></div>
+    </div>
+    <div class="compare reveal" role="table" aria-label="Comparativo entre aquecimento solar e bomba de calor">
+      <div class="compare-head" role="row"><span role="columnheader"></span><span role="columnheader">Solar</span><span role="columnheader">Bomba de calor</span></div>
+      <div class="compare-row" role="row"><span role="rowheader">Fonte de calor</span><span role="cell">Sol</span><span role="cell">Calor do ar + energia elétrica</span></div>
+      <div class="compare-row" role="row"><span role="rowheader">Quando aquece</span><span role="cell">Durante o dia, com sol</span><span role="cell">A qualquer hora</span></div>
+      <div class="compare-row" role="row"><span role="rowheader">Custo para manter</span><span role="cell">O mais baixo</span><span role="cell">Consumo elétrico moderado</span></div>
+      <div class="compare-row" role="row"><span role="rowheader">Espaço</span><span role="cell">Placas no telhado</span><span role="cell">Equipamento compacto no chão</span></div>
+      <div class="compare-row" role="row"><span role="rowheader">Ideal para</span><span role="cell">Uso diurno e máxima economia</span><span role="cell">Uso noturno e temperatura constante</span></div>
+      <div class="compare-foot"><b>Na dúvida?</b> Na visita técnica gratuita a gente avalia sua piscina e indica o sistema certo, ou a combinação dos dois.</div>
     </div>
   </div>
 </section>
@@ -691,8 +750,9 @@ alt=""></noscript>
     <div class="faq-grid">
       <!-- COPY: FAQ (derivada do mapa) -->
       <details class="reveal"><summary>Qual sistema é ideal para a minha piscina?<span class="plus"></span></summary><div class="ans">Depende do tamanho, do uso e de já existir ou não um ponto de aquecimento. Por isso a visita técnica é gratuita: avaliamos no local e indicamos o sistema certo, sem solução genérica.</div></details>
+      <details class="reveal"><summary>Solar ou bomba de calor: qual escolher?<span class="plus"></span></summary><div class="ans">O solar é o mais econômico de manter e aquece durante o dia. A bomba de calor aquece a qualquer hora, inclusive à noite e em dias nublados, com temperatura controlada. Muita gente combina os dois. Na visita técnica indicamos o melhor para o seu uso.</div></details>
       <details class="reveal"><summary>Quanto custa?<span class="plus"></span></summary><div class="ans">Varia conforme o tamanho da piscina e o sistema. Passamos uma estimativa no primeiro contato e fechamos o valor certo depois da visita técnica.</div></details>
-      <details class="reveal"><summary>Vai aumentar minha conta de luz?<span class="plus"></span></summary><div class="ans">O aquecimento solar aproveita o sol de Goiânia, então é o sistema mais econômico de manter no dia a dia. A gente explica direitinho como funciona antes de você decidir.</div></details>
+      <details class="reveal"><summary>Vai aumentar minha conta de luz?<span class="plus"></span></summary><div class="ans">O aquecimento solar aproveita o sol de Goiânia, então é o sistema mais econômico de manter no dia a dia. A bomba de calor usa energia elétrica, mas de forma eficiente: ela capta o calor do ar em vez de aquecer por resistência. A gente explica direitinho o consumo de cada um antes de você decidir.</div></details>
       <details class="reveal"><summary>Quanto tempo leva a instalação?<span class="plus"></span></summary><div class="ans">Com equipe própria, a instalação é rápida, muitas vezes na mesma semana da aprovação. Combinamos tudo na visita técnica.</div></details>
       <details class="reveal"><summary>Tem garantia?<span class="plus"></span></summary><div class="ans">Tem. O serviço é feito para durar e você conta com garantia e suporte de um time que fica por perto.</div></details>
       <details class="reveal"><summary>Vocês atendem em quais cidades?<span class="plus"></span></summary><div class="ans">Goiânia e região: Aparecida de Goiânia, Trindade, Goianira e Nerópolis.</div></details>
@@ -737,7 +797,9 @@ alt=""></noscript>
     <img src="assets/img/logo-white.webp" alt="Império das Piscinas" class="footer-logo" width="520" height="173" loading="lazy" decoding="async">
     <div class="foot-links">
       <a href="#problema">Por que aquecer</a>
-      <a href="#solucao">Como funciona</a>
+      <a href="#aquecimento-solar">Aquecimento solar</a>
+      <a href="#bomba-de-calor">Bomba de calor</a>
+      <a href="#galeria">Projetos</a>
       <a href="#diferenciais">Diferenciais</a>
       <a href="#faq">Dúvidas</a>
       <a href="https://spar-hazel.vercel.app/l/imperio-piscinas-pr5g" onclick="return gtag_report_conversion(this.href);" target="_blank" rel="noopener">WhatsApp</a>
@@ -747,6 +809,31 @@ alt=""></noscript>
   </div>
 </footer>
 
+<script>
+// ---------- reveal / fade-in no scroll (bloco isolado: erro em outro script não deixa conteúdo invisível) ----------
+(function(){
+  var els=document.querySelectorAll('.reveal,.stagger');
+  if(!('IntersectionObserver' in window)){document.documentElement.classList.remove('js');window.revealReady=true;return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el)});
+  window.revealReady=true;
+})();
+
+// ---------- âncoras antigas/quebradas dos anúncios -> IDs atuais ----------
+(function(){
+  var alias={'solucao':'aquecimento-solar','aquecimento':'aquecimento-solar','galTrack':'galeria','projetos':'galeria','projeto':'galeria','projetosojeto':'galeria','bomba-de-calornte':'bomba-de-calor','bomba':'bomba-de-calor'};
+  function fix(e){
+    var h=decodeURIComponent(location.hash.slice(1));
+    if(!h||document.getElementById(h)&&!alias[h])return;
+    var t=document.getElementById(alias[h]);
+    if(!t)return;
+    history.replaceState(null,'',location.pathname+location.search+'#'+alias[h]);
+    t.scrollIntoView({behavior:e?'smooth':'instant'}); // no carregamento pula direto, igual âncora nativa
+  }
+  fix();
+  window.addEventListener('hashchange',fix);
+})();
+</script>
 <script>
 // ---------- favicon conforme o tema do navegador ----------
 // navegador claro -> favicon escuro | navegador escuro -> favicon claro
@@ -761,10 +848,6 @@ alt=""></noscript>
   setFavicon();
   mq.addEventListener?mq.addEventListener('change',setFavicon):mq.addListener(setFavicon);
 })();
-
-// ---------- reveal / fade-in no scroll ----------
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
 
 
 // galeria de projetos (setas + auto-avanço, 3 por vez)

@@ -40,7 +40,13 @@ Suba um servidor estático simples (ex.: `npx serve .`) e acesse `http://localho
 
 ## Seções
 
-Faixa de urgência · Hero · Prova numérica · Problema · Solução (galeria) · Processo · Diferenciais · Depoimento · FAQ · Formulário de orçamento · Rodapé.
+Faixa de urgência · Hero · Prova numérica · Problema · Solução (galeria) · Bomba de calor · Processo · Diferenciais · Depoimento · FAQ · Formulário de orçamento · Rodapé.
+
+## Âncoras de `/aquecedores` (usar nos anúncios)
+
+`#problema` · `#aquecimento-solar` · `#galeria` · `#bomba-de-calor` · `#processo` · `#diferenciais` · `#faq` · `#orcamento`
+
+Âncoras antigas/quebradas (`#solucao`, `#projetosojeto`, `#bomba-de-calornte`, `#projetos`) são redirecionadas via JS para as atuais.
 
 ## Pendências
 
